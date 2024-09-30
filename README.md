@@ -7,7 +7,7 @@ This Azure Function sample project provides a proxy app for reformatting Veza we
 ## 1. Splunk
 Splunk provides a HTTP Event Collector (HEC), which lets you send data and application events to a Splunk deployment over HTTP and HTTPS. After configuring the HTTP Event Collector on Splunk (Configuraton differs depending on the platform), you will get the **HTTP Event Collector URL**, which accepts the HTTP POST message. The body of the message is in the format
 
-```json
+```
 {
   event: {
     kind: "test"
