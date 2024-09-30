@@ -41,6 +41,7 @@ Sending a Veza webhook message to HEC is as easy as embedding the original messa
     | SPLUNK_TOKEN | The Splunk token to authenticate the HTTP Event Collector URL |
     | SOURCE_HOST | (optional) This is what you want to populate `host` with in the message. If omitted, it will default to `veza` |
     | HEC_INDEX | (optional) This is value you want to populate `index` with in the mssage. If omitted, it will default to `main` |
+    | IGNORE_SELF_SIGNED_CERT | This is an option to avoid TLS errors. For Splunk Cloud free trial accounts, set this to `true` to temporarily ignore certificate verification, as the cert here is self-signed. In production environments, this should be `false` or unset so that TLS is enabled |
 
 ### Deploy to Azure
 
