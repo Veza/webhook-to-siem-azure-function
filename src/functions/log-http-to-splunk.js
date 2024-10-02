@@ -1,6 +1,5 @@
 const { app } = require('@azure/functions');
 
-const token = process.env.SPLUNK_TOKEN;
 const uri = process.env.HEC_URI;
 const sourceType = '_json';
 const host = process.env.SOURCE_HOST || 'veza';
@@ -9,9 +8,10 @@ const nodeTlsRejectUnauthorized = (process.env.IGNORE_SELF_SIGNED_CERT || 'false
 
 app.http('log-http-to-splunk', {
     methods: ['POST'],
-    authLevel: 'function',
+    authLevel: 'anonymous',
     handler: async (request, context) => {
         const requestBody = await request.json();
+        const token = request.headers.get('authorization');
 
         const body = {
             event: requestBody,
@@ -37,6 +37,7 @@ app.http('log-http-to-splunk', {
 
             if (res.status == 200) {
                 res = await res.json();
+                context.info(res);
                 return {
                     body: JSON.stringify(res)
                 }
@@ -46,11 +47,11 @@ app.http('log-http-to-splunk', {
                     body: res.statusText
                 }
             }
-        } catch (e) {
-            context.error(e);
+        } catch (err) {
+            context.error(err);
             return {
                 status: 400,
-                body: e
+                body: err
             }
         }
 
