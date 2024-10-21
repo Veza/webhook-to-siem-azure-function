@@ -28,7 +28,7 @@ Sending a Veza webhook message to HEC is as easy as embedding the original messa
 
 ### Create a Function App in Azure
 
-1. Follow [these instructions](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node?pivots=nodejs-model-v4#deploy-the-project-to-azure) to create the Function App
+1. Follow [these instructions](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node?pivots=nodejs-model-v4#create-the-function-app-in-azure) to create the Function App
     * For the Runtime stack, select **Node.js xx** 
 
 2. **Add environment variables:**
@@ -48,7 +48,7 @@ Sending a Veza webhook message to HEC is as easy as embedding the original messa
 
 **Deploy the project code to the above Function App using VS Code**
 
-* Follow [these VS Code instructions](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-csharp#deploy-the-project-to-azure) to deploy the function code.
+* Follow [these VS Code instructions](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node?pivots=nodejs-model-v4#deploy-the-project-to-azure) to deploy the function code.
 
 After successfully deploying the code, in your VSCode OUTPUT tab, you should see output similar to the following:
 
